@@ -30,6 +30,8 @@
 
 #define COLOR_SLIDE_IN_INTERVAL 2
 
+#define CENTER_LED_ID 37
+
 #define DEBUG false
 #define DEBUG_SERIAL if(DEBUG)Serial
 
@@ -435,7 +437,7 @@ void decodeRemoteData(uint32_t data){
 }
 
 void recvData() {
-    if(Serial.available() == 5){
+    if(Serial.available() >= 5){
         for(int i = 0; i < 5; i++){
             serial_data_buffer[i] = Serial.read();
         }
@@ -527,12 +529,12 @@ void loop() {
 
         // spread streamed colors
         case 5:
-            spread(37,3);
+            spread(CENTER_LED_ID, 3);
             break;
 
         // spread streamed colors
         case 6:
-            spread2(37,2);
+            spread2(CENTER_LED_ID, 2);
             break;
 
         // colorful sprinkle

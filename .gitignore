@@ -8,3 +8,7 @@ lib
 include
 test
 platformio.ini
+packages
+.vs
+bin
+obj
